@@ -24,6 +24,17 @@ export const AdminPanel = () => {
         <Outlet />
         <div className="container">                    
             <div className='row mtop-15 mbo-5'>ADMIN PANEL</div>
+            <ul className='text-white'>
+                <li>CREATE COMPANY</li>
+                <li>MENU UPDATING DEPENDING OF CONTENT FROM USER</li>
+                <li>CREATE SUPPLIER</li>
+                <li>CREATE ITEM</li>
+                <li>CREATE CITY</li>
+                <li>CREATE SUPERVISOR</li>
+                <li>CREATE INVENTORY</li>
+                <li>CREATE SELL</li>
+                <li>CREATE SELLER</li>
+            </ul>
         </div>
     </Fragment>
   )

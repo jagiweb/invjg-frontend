@@ -14,7 +14,7 @@ import * as Rilcons from 'react-icons/ri'
         
     },
     {
-        title: 'Locaciones',
+        title: 'inversiones y servicios jg 2010',
         path: '#',
         icon: <Rilcons.RiListOrdered />,
         iconClosed: <Rilcons.RiArrowDownSFill />,
@@ -22,7 +22,7 @@ import * as Rilcons from 'react-icons/ri'
         subNav: [
             {
                 title: 'Caracas',
-                path: "table-all-scholars",
+                path: "company",
                 icon: <Rilcons.RiListCheck />
             },
             {
