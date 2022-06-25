@@ -1,8 +1,11 @@
 const baseURL = "http://localhost:3001"
-
 //////////// ADMIN //////////////
 const signInURL = `${baseURL}/admin/signin`
 const validateURL = `${baseURL}/admin/validate`
+//////////// COMPANY /////////////
+const createCompanyURL = `${baseURL}/admin/company_create`
+
+
 /////// GET REQUEST WITH TOKEN /////
 
 const get = (url, token) => {
@@ -20,21 +23,21 @@ const post = (url, object) => {
     return fetch(url, configurationObject)
 }
 
-const destroy = (url, id) => {
-    const configurationObject = {
-        method: "DELETE"
-    }
-    return fetch(`${url}/${id}`, configurationObject)
-}
+// const destroy = (url, id) => {
+//     const configurationObject = {
+//         method: "DELETE"
+//     }
+//     return fetch(`${url}/${id}`, configurationObject)
+// }
 
-const patch = (url, id, object) => {
-    const configurationObject = {
-        method: "PATCH",
-        headers: {"Content-type": "application/json"},
-        body: JSON.stringify(object)
-    }
-    return fetch(`${url}/${id}`, configurationObject)
-}
+// const patch = (url, id, object) => {
+//     const configurationObject = {
+//         method: "PATCH",
+//         headers: {"Content-type": "application/json"},
+//         body: JSON.stringify(object)
+//     }
+//     return fetch(`${url}/${id}`, configurationObject)
+// }
 
 /////////// SIGN IN AND VALIDATE ///////////
 
@@ -46,9 +49,15 @@ const validate = token => {
     return get(validateURL, token).then(response => response.json())
 }
 
+/////////// COMPANY /////////
+const createCompany = data => {
+    return post(createCompanyURL, data).then(response => response.json())
+}
+
 const exports = {
     signIn,
-    validate
+    validate,
+    createCompany
 }
 
 export default exports

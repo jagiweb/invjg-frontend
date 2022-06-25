@@ -13,7 +13,7 @@ function Home() {
         if (token !== undefined){
             API.validate(token)
             .then(data => setUserState(data.admin))
-            
+            console.log(userState)
             navigate("/admin-panel")
         }
     }, [])

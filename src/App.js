@@ -1,6 +1,5 @@
-import React, { useState, useEffect, Fragment } from 'react';
-import logo from './logo.svg';
-import API from './API'
+import React, { Fragment } from 'react';
+// import API from './API'
 import "bootstrap/dist/css/bootstrap.min.css";
 import {Route, Routes, Navigate} from 'react-router-dom'
 import './App.css';
@@ -9,10 +8,11 @@ import Login from './components/home/Login';
 import Logout from './components/home/Logout';
 import { AdminPanel } from './components/admin/AdminPanel';
 import Company from './components/admin/company/Company';
+import Alerts from './components/home/Alerts';
 
 const App = () => {
 
-  const [userState, setUserState] = useState()
+  // const [userState, setUserState] = useState()
 
   // useEffect(() => {
   //     let token = localStorage.token
@@ -34,6 +34,7 @@ const App = () => {
     // </div>
     <Fragment>
         {/* <Sidebar/> */}
+        <Alerts />
         <Routes>
           <Route path="/" element={<Home/>} />
           <Route path="/admin-panel/" element={<AdminPanel/>}>

@@ -7,7 +7,7 @@ const Login = () => {
     
     const [userState, setUserState] = useState()
     const [state, setState] = useState({})
-    const [success, setSuccess] = useState(null)
+    // const [success, setSuccess] = useState(null)
     let navigate = useNavigate(); 
 
     const handleChange = (e) => {
@@ -21,17 +21,17 @@ const Login = () => {
     const handleSubmit = (e) => {
         e.preventDefault()
         API.signIn(state)
-          .then(json => signIn(json.username, json.token, json.admin, json.message))
+          .then(json => signIn(json.admin, json.token))
         
     }
 
-    const signIn = (token, user) => {
+    const signIn = (user, token ) => {
         let data = user
-        console.log(user)
         if (user){
           setUserState(data)
           localStorage.token = token
           localStorage.id = user.id
+          console.log(userState)
         return navigate("/admin-panel/")
       }else{
         console.log("ERROR")
@@ -50,7 +50,7 @@ const Login = () => {
                                     <p className="text-success"> Por favor ingresa la clave y contrasena!</p> 
                                     <input type="text" onChange={(e) => handleChange(e)} name="username" placeholder="Usuario"/> 
                                     <input type="password" onChange={(e) => handleChange(e)} name="password" placeholder="Contrasena"/> 
-                                    <a className="forgot text-danger" href="#">Olvidaste tu contrasena? BRUTO</a> 
+                                    {/* <a className="forgot text-danger" href="#">Olvidaste tu contrasena? BRUTO</a>  */}
                                     <input type="submit" name="" value="Continuar" href="#"/>
                                 </form>
                             </div>

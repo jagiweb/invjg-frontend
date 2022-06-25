@@ -1,5 +1,5 @@
 import React, {Fragment, useEffect, useState} from 'react'
-import { Routes, Outlet, useNavigate } from 'react-router-dom';
+import { Outlet, useNavigate } from 'react-router-dom';
 import API from '../../API'
 import Sidebar from './navbar/Sidebar';
 
@@ -13,6 +13,7 @@ export const AdminPanel = () => {
         if (token !== undefined){
             API.validate(token)
             .then(data => setUserState(data.admin))
+            // console.log(userState)
         }else{
             navigate("/")
         }
@@ -20,8 +21,6 @@ export const AdminPanel = () => {
   return (
     <Fragment>
         <Sidebar />
-        
-        <Outlet />
         <div className="container">                    
             <div className='row mtop-15 mbo-5'>ADMIN PANEL</div>
             <ul className='text-white'>
@@ -36,6 +35,8 @@ export const AdminPanel = () => {
                 <li>CREATE SELLER</li>
             </ul>
         </div>
+        <Outlet />
+        
     </Fragment>
   )
 }

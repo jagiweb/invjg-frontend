@@ -11,7 +11,7 @@ import * as Rilcons from 'react-icons/ri'
 // import PriceTokens from '../tokens/PriceTokens';
 // import NavbarTokens from '../tokens/NavbarTokens';
 import './sidebar.css'
-import API from '../../../API'
+// import API from '../../../API'
 
 const Nav = styled.div`
   background: rgb(34, 34, 34);
@@ -49,7 +49,9 @@ const SidebarWrap = styled.div`
   width: 100%;
 `
 
-const Sidebar = ({tokens}) => {
+// const Sidebar = ({tokens}) => {
+const Sidebar = () => {  
+
 //   const [tokensPrices, settokensPrices] = useState([])
   const [sidebar, setSidebar] = useState(false)
   let navigate = useNavigate(); 
@@ -57,7 +59,7 @@ const Sidebar = ({tokens}) => {
 
 
   useEffect(() => {
-    let token = localStorage.token
+    // let token = localStorage.token
     // API.getTokensPrices(token)      
     //     .then(data => settokensPrices(data.tokens_current_price))
   }, [])
