@@ -1,6 +1,5 @@
 import React, {useState} from "react";
-import {Modal, Button, Alert, Row, Container, Col, Form} from 'react-bootstrap';
-import {useNavigate} from 'react-router-dom'
+import {Modal, Button, Alert, Container, Form} from 'react-bootstrap';
 import API from '../../../API';
 
 function CreateCompanyModal(admin) {
@@ -8,7 +7,6 @@ function CreateCompanyModal(admin) {
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-    // const navigate = useNavigate()
     const [company, setCompany] = useState({success: null, message: ""})
     const [AlertShow, setAlertShow] = useState(false)
 

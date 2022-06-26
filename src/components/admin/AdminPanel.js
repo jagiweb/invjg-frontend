@@ -17,6 +17,7 @@ export const AdminPanel = () => {
             navigate("/")
         }
     }, [])
+    
   return (
     <Fragment>
         <Sidebar />

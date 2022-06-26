@@ -30,7 +30,7 @@ function SidebarData() {
             
         },
         {
-            title: 'Empresas',
+            title: 'Mis Empresas',
             path: '#',
             icon: <Rilcons.RiListOrdered />,
             iconClosed: <Rilcons.RiArrowDownSFill />,
@@ -41,7 +41,7 @@ function SidebarData() {
                     path: `/admin-panel/mycompany/${company.id}`,
                     icon: <Falcons.FaAngleRight />
                 })
-            )
+            ),
         },
         {
             title: 'Crear Usuario',
@@ -69,14 +69,6 @@ function SidebarData() {
             
         },
         {
-            title: 'Crear Empresa',
-            path: 'company',
-            icon: <Falcons.FaPiggyBank />,
-            iconClosed: <Rilcons.RiArrowDownFill />,
-            iconOpened: <Rilcons.RiArrowUpSFill />,
-            
-        },
-        {
             title: 'Registrar Venta',
             path: '/',
             icon: <Rilcons.RiCalculatorLine />,
@@ -91,25 +83,30 @@ function SidebarData() {
             iconClosed: <Rilcons.RiArrowDownFill />,
             iconOpened: <Rilcons.RiArrowUpSFill />,
             
-        }
+        },
+        {
+            title: 'Mis Proveedores',
+            path: 'supplier',
+            icon: <Iolcons.IoIosPeople />,
+            iconClosed: <Rilcons.RiArrowDownSFill />,
+            iconOpened: <Rilcons.RiArrowUpSFill />,            
+        },
+        {
+            title: 'Crear Empresa',
+            path: 'company',
+            icon: <Falcons.FaPiggyBank />,
+            iconClosed: <Rilcons.RiArrowDownFill />,
+            iconOpened: <Rilcons.RiArrowUpSFill />,
+            
+        },
     
     ]
-
-    const renderSubMenu = () => {
-        data.map((item, index) => {
-            console.log(item)
-            return <SubMenu item={item} key={index}  />
-        })
-    }
 
   return (
     <>
         {data.map((item, index) => {
-            console.log(item)
             return <SubMenu item={item} key={index}  />
         })}
-        {/* {console.log(data)} */}
-    
     </>
   )
 }
