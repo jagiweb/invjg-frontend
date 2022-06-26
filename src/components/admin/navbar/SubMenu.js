@@ -1,6 +1,7 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from "react";
 import {Link} from 'react-router-dom'
 import styled from 'styled-components'
+import API from '../../../API';
 
 const SidebarLink = styled(Link)`
     display: flex;
@@ -11,7 +12,7 @@ const SidebarLink = styled(Link)`
     list-style: none;
     height: 60px;
     text-decoration: none;
-    font-size: 24px;
+    font-size: 18px;
     &:hover {
         background: #33ccff69;
         border-left: 4px solid #fff;
@@ -32,7 +33,7 @@ const DropdownLink = styled(Link)`
     align-items: center;
     text-decoration: none;
     color: #f5f5f5;
-    font-size: 24px;
+    font-size: 18px;
     &:hover {
         background: #33ccff69;
         border-left: 4px solid #fff;
@@ -43,8 +44,15 @@ const DropdownLink = styled(Link)`
 
 const Submenu = ({ item }) => {
     const [subnav, setSubnav] = useState(false)
-
+    const [adminCompanies, setadminCompanies] = useState([])
     const showSubnav = () => setSubnav(!subnav)
+
+    useEffect(() => {
+        let token = localStorage.token
+        API.getAdminCompanies(token)      
+            .then(data => setadminCompanies(data.companies))
+    }, [])
+
     return (
         <>
             <SidebarLink to={item.path} onClick={item.subNav && showSubnav}>
@@ -58,7 +66,9 @@ const Submenu = ({ item }) => {
             </SidebarLink>
             {subnav && item.subNav.map((item, index) => {
                 return (
+                    
                     <DropdownLink to={item.path} key={index}>
+                        {console.log(item)}
                         {item.icon}
                         <SidebarLabel>{item.title}</SidebarLabel>
                     </DropdownLink>

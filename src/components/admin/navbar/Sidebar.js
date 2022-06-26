@@ -1,17 +1,12 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import * as Falcons from 'react-icons/fa'
 import * as Ailcons from 'react-icons/ai'
 import styled from 'styled-components'
 import SidebarData from './SidebarData';
-import SubMenu from './SubMenu'
 import { IconContext } from 'react-icons/lib';
 import * as Rilcons from 'react-icons/ri'
-// import Logout from '../home/Logout';
-// import PriceTokens from '../tokens/PriceTokens';
-// import NavbarTokens from '../tokens/NavbarTokens';
 import './sidebar.css'
-// import API from '../../../API'
 
 const Nav = styled.div`
   background: rgb(34, 34, 34);
@@ -48,22 +43,11 @@ const SidebarNav = styled.nav`
 const SidebarWrap = styled.div`
   width: 100%;
 `
-
-// const Sidebar = ({tokens}) => {
 const Sidebar = () => {  
 
-//   const [tokensPrices, settokensPrices] = useState([])
   const [sidebar, setSidebar] = useState(false)
   let navigate = useNavigate(); 
   const showSidebar = () => setSidebar(!sidebar)
-
-
-  useEffect(() => {
-    // let token = localStorage.token
-    // API.getTokensPrices(token)      
-    //     .then(data => settokensPrices(data.tokens_current_price))
-  }, [])
-
 
   const logOut = () =>{
     localStorage.removeItem('token')
@@ -91,13 +75,8 @@ const Sidebar = () => {
           <NavIcon to='#'>
             <Ailcons.AiOutlineClose onClick={showSidebar}/>
           </NavIcon>
-          {SidebarData.map((item, index) => {
-            return <SubMenu item={item} key={index}  />
-          })}
-          <button type='button' className="logout-button f-right btn btn-logout-navbar" onClick={() => logOut()}><span className='mr-5'>{<Rilcons.RiLogoutBoxRLine />}</span>Logout</button>
-          <div className='row pri'>
-            {/* {renderTokensPrice()} */}
-          </div>
+          <SidebarData/>
+          <button type='button' className="logout-button f-right btn btn-danger btn-logout-navbar" onClick={() => logOut()}><span className='mr-5'>{<Rilcons.RiLogoutBoxRLine />}</span>Logout</button>
           
         </SidebarWrap>
       </SidebarNav>
