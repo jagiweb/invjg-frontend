@@ -89,7 +89,7 @@ function CreateSupplierModal(admin) {
                             <Form.Control autoComplete="off" name="phone" onChange={handleChange} type="number" placeholder="Numero telefonico 555-555-5555"/>
                         </Form.Group>
                         <Form.Group className="mb-3">
-                            <Form.Label>A que empresa tuya pertenece proveedor?</Form.Label>
+                            <Form.Label>A que empresa tuya pertenece el proveedor?</Form.Label>
                             {/* <Form.Control autoComplete="off" name="company_id" onChange={handleChange} type="text" placeholder=""/> */}
                             {companies ? <Select 
                                             name={"company_id"} 
