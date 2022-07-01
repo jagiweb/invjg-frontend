@@ -1,0 +1,1 @@
+// show page for an specific item

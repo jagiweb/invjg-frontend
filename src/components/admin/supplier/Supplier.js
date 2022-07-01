@@ -1,21 +1,22 @@
-import React, {useState, useEffect} from "react";
-import API from '../../../API';
-import CreateSupplierModal from './CreateSupplierModal'
+import React from 'react'
 
-function Supplier() {
-    const [admin, setAdmin] = useState(undefined)
-    useEffect(() => {
-        let token = localStorage.token
-        if (admin === undefined) {
-            API.validate(token)
-            .then(data => setAdmin(data.admin_id))
-            
-        }
-      })
+function Supplier(data) {
+    const {name, pdf, address, website} = data.supplier
+
+
+
   return (
-    <div className="container">
-      <CreateSupplierModal id={admin}/>
-    </div>
+    <>
+    {console.log(data)}
+        <div className='text-white'>
+            <p>Nombre: {name}</p>
+            <p>Direccion: {address}</p>
+            <p>Web: {website}</p>
+            <span>PDF?:</span><a href={pdf}>{pdf}</a>
+            <br></br>
+            <br></br>
+        </div>
+    </>
   )
 }
 

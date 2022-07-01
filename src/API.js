@@ -9,6 +9,7 @@ const adminCompaniesURL = `${baseURL}/admin/get_company`
 //////////// SUPPLIER ////////////
 const createSupplierURL = `${baseURL}/admin/supplier_create`
 const companySuppliersURL = `${baseURL}/admin/get_supplier`
+const companyAllSuppliersURL = `${baseURL}/admin/get_all_suppliers`
 
 
 /////// GET REQUEST WITH TOKEN /////
@@ -77,13 +78,18 @@ const getCompanySupplier = data => {
     return get(companySuppliersURL, data).then(response => response.json())
 }
 
+const getCompanyAllSuppliers = data => {
+    return get(companyAllSuppliersURL, data).then(response => response.json())
+}
+
 const exports = {
     signIn,
     validate,
     createCompany,
     getAdminCompanies,
     createSupplier,
-    getCompanySupplier
+    getCompanySupplier,
+    getCompanyAllSuppliers
 
 }
 

@@ -47,6 +47,10 @@ function CreateSupplierModal(admin) {
             setAlertShow(true)
             setShow(false)
         }
+
+        setTimeout(() => {
+            setAlertShow(false)
+          }, 5000)
             
     }
 
@@ -62,10 +66,8 @@ function CreateSupplierModal(admin) {
     }
   return (
     <>
-        {console.log(newSupplier)}
         {AlertShow && newSupplier.success ? <Alert onClose={() => setAlertShow(false)} dismissible variant="success">{newSupplier.message}</Alert> : null}
         {AlertShow && newSupplier.success === false ? <Alert onClose={() => setAlertShow(false)} dismissible variant="danger">{newSupplier.message}</Alert> : null}
-        {console.log(company)}
         <Button className="nextButton" onClick={handleShow}>
             Crear Proveedor
         </Button>
